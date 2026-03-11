@@ -80,8 +80,8 @@ try:
     username_input = driver.find_element(By.ID, "username")
     password_input = driver.find_element(By.ID, "password")
 
-    username_input.send_keys("agungprakasa49@gmail.com")
-    password_input.send_keys("AAaa123$")
+    username_input.send_keys("")
+    password_input.send_keys("")
 
     # --- Klik tombol login ---
     daftar_button = wait.until(
@@ -119,3 +119,4 @@ try:
    
 finally:
     driver.quit()
+
