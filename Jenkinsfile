@@ -11,7 +11,7 @@ def urlJenkinsJob = 'http://10.24.7.14:8080/job/'
 def buildNumber = currentBuild.number
 
 def sendTelegramNotification(String message) {
-    def token = "7700320759:AAHC0ufJWzBsteFFfyoXg27cO7cCfZkcR00"
+    def token = "token"
     def chatId = "-4800804566"
     def url = "https://api.telegram.org/bot${token}/sendMessage"
 
@@ -84,7 +84,7 @@ node {
             sh '''
             for file in output/*.log; do
                 if [ -f "$file" ]; then
-                    curl -s -X POST https://api.telegram.org/bot7700320759:AAHC0ufJWzBsteFFfyoXg27cO7cCfZkcR00/sendDocument \
+                    curl -s -X POST https://api.telegram.org/bottoken/sendDocument \
                         -F chat_id=-4800804566 \
                         -F document=@"$file" \
                         -F caption="Log: $(basename $file)"
@@ -96,7 +96,7 @@ node {
             sh '''
             for file in output/*.png; do
                 [ -e "$file" ] || continue
-                curl -s -X POST https://api.telegram.org/bot7700320759:AAHC0ufJWzBsteFFfyoXg27cO7cCfZkcR00/sendPhoto \
+                curl -s -X POST https://api.telegram.org/bottoken/sendPhoto \
                     -F chat_id=-4800804566 \
                     -F photo=@"$file" \
                     -F caption="Screenshot: $(basename $file)"
@@ -105,4 +105,5 @@ node {
         }
         }
     } 
+
 }
