@@ -40,9 +40,9 @@ try:
     confirm_password_input = driver.find_element(By.ID, "confirm_password")
 
     username_input.send_keys("Agung")
-    email_input.send_keys("agungprakasa49@gmail.com")
-    password_input.send_keys("AAaa123$")
-    confirm_password_input.send_keys("AAaa123$")
+    email_input.send_keys("")
+    password_input.send_keys("")
+    confirm_password_input.send_keys("")
     # click_setuju_button = wait.until(
     #     EC.element_to_be_clickable((By.XPATH, "//span[contains(@class, 'ant-checkbox-input')]"))
     # )
@@ -101,3 +101,4 @@ try:
    
 finally:
     driver.quit()
+
